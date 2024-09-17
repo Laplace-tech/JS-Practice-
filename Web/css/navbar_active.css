@@ -1,0 +1,112 @@
+
+/* 애니메이션 정의 */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* ******************************************************************* */
+
+/* 반응형 디자인 설정 */
+@media (max-width: 700px) {
+  
+    .navbar {
+        padding: 0;
+        height: 120px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* ******************************************************************* */
+
+    .logo-wrapper {
+        margin: 0;
+        padding: 0;
+    }
+
+    .logo-link {
+        width: 80px;
+        height: 80px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+    }
+
+    .logo-link img {
+        width: 100%; /* 컨테이너 너비에 맞게 이미지 크기 조정 */
+    }
+
+    .logo-text {
+        font-size: 28px;
+        padding: 0;
+    }
+
+    /* ******************************************************************* */
+
+    .menu-toggle {
+        display: block;
+    }
+    
+    .menu-toggle img {
+        width: 40px; /* 햄버거 버튼 이미지 크기 조절 */
+        height: 40px;
+    }
+
+    /* ******************************************************************* */
+
+    .nav-menu {
+        flex-direction: column;
+        background-color: rgba(51, 51, 51, 0);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: background-color 0.3s ease, max-height 0.3s ease, opacity 0.3s ease;
+    }
+
+    .nav-menu.active {
+        background-color: rgba(51, 51, 51, 0.7);
+        padding: 0px;
+        max-height: 500px;
+        opacity: 1;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        padding: 0;
+        margin: 5px 0;
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: slideIn 0.3s ease-out forwards;
+    }
+
+    .nav-menu li:nth-child(1) { animation-delay: 0.2s; }
+    .nav-menu li:nth-child(2) { animation-delay: 0.4s; }
+    .nav-menu li:nth-child(3) { animation-delay: 0.6s; }
+    .nav-menu li:nth-child(4) { animation-delay: 0.8s; }
+    .nav-menu li:nth-child(5) { animation-delay: 1s; }
+
+    .nav-menu:not(.active) li {
+        animation: slideOut 0.1s ease-in forwards;
+    }
+}
