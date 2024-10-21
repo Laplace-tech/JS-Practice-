@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang = "ko"> <!-- 이 문서가 한국어임을 명시 -->
+	
+<head>
+	<meta charset = "utf-8"> <!-- 문자 인코딩 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+	<!-- 뷰포트의 너비, 초기 배율 설정 (100%), 콘텐츠가 뷰포트에 맞춰 줄어들지 않도록 설정 -->
+	
+	<link rel = "stylesheet" type = "text/css" th:href = "@{/bootstrap.min.css}">
+	<!-- 해당 파일의 URL을 동적으로 해결 -->
+	
+	<title>DAIN</title>
+</head>
+<body>
+	
+	<!-- 네비게이션바 -->
+	<nav th:replace="~{navbar :: navbarFragment}"></nav>
+
+	<!-- 기본 템플릿 안에 삽입될 내용 Start -->
+	<th:block layout:fragment="content"></th:block>
+	<!-- 기본 템플릿 안에 삽입될 내용 End -->
+
+	<!-- Bootstrap JS -->
+	<script th:src="@{/bootstrap.min.js}"></script>
+
+	<!-- 자바스크립트 Start -->
+	<th:block layout:fragment="script"></th:block>
+	<!-- 자바스크립트 End -->
+		 
+</body>
+</html>
